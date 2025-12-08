@@ -84,7 +84,8 @@ http.createServer(async function (req, res) {
                 res.write("<p>We found results for your query. Wow!</p><br/><br/>");
                 res.write("<ul>");
                     results.forEach(thingie => {
-                        res.write(`<li>${thingie.name}, ${thingie.ticker}, ${thingie.price}</li>`)
+                        console.log(thingie.name + ", " + thingie.ticker + ", " + thingie.price);
+                        res.write(`<li>${thingie.name}, ${thingie.ticker}, ${thingie.price}</li>`);
                     })
                     res.write("</ul>");
                 } else {
