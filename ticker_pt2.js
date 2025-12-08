@@ -77,7 +77,7 @@ async function doit() {
                     </head>
                     <body>
                         <h1>Stock Form</h1>
-                        <form method="get" action="/process">
+                        <form method="GET" action="/process">
                             <label>Are you inputting a stock ticker or company name?</label><br/>
                                 <label>
                                     <input type="radio" id="ticker" name="type" value="ticker" checked> Stock Ticker
@@ -90,7 +90,7 @@ async function doit() {
                                     Input Stock Ticker or Company Name Here: <input type="text" id="input" name="input" required>
                                 </label><br/><br/>
 
-                            <input type="submit" value="View Results">
+                            <button type="submit">View Results</button>
                         </form>
                     </body>
                     </html>`
