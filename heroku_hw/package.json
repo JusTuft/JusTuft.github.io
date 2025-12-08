@@ -1,0 +1,19 @@
+{
+  "name": "stockapp",
+  "version": "1.0.0",
+  "description": "stock app",
+  "main": "ticker_pt2.js",
+  "scripts": {
+  "start": "node ticker_pt2.js"
+},
+  "repository": {
+  "type": "git",
+  "url": ""
+},
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
+}
