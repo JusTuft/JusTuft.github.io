@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highway Healthy Eats</title>
+    <link rel="stylesheet" href="health_style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Highway Healthy Eats</h1>
+        <p>Find healthy fast-food options near you!</p>
+    </header>
+
+    <div class="controls">
+        <div class="filters" style="margin-bottom: 40px;">
+            <label>Filter Chain:</label>
+            <select id="chainFilter">
+                <option value="all">All</option>
+                <option value="McDonald's">McDonald's</option>
+                <option value="Wendy's">Wendy's</option>
+                <option value="Taco Bell">Taco Bell</option>
+            </select>
+
+            <label>Filter Calories:</label>
+            <select id="calorieFilter">
+                <option value="nopref">No Preference</option>
+                <option value="300">0-300</option>
+                <option value="600">300-600</option>
+                <option value="900">600-900</option>
+                <option value="900+">900+</option>
+            </select>
+
+            <label>Filter Type of Food:</label>
+            <select id="typeFilter">
+                <option value="nopref">No Preference</option>
+                <option value="burger">Burger</option>
+                <option value="sandwich">Sandwich</option>
+                <option value="taco">Taco</option>
+                <option value="salad">Salad</option>
+            </select>
+            
+            <label style="margin-top: 20px">Sort Results By:</label>
+            <select id="sortSelect">
+                <option value="none">None</option>
+                <option value="calories">Calories (Low → High)</option>
+                <option value="protein">Protein (High → Low)</option>
+                <option value="price">Price (Low → High)</option>
+            </select>
+        </div>
+
+        <button id="loc_btn" onclick="getLocation()">Use My Location</button>
+        <button id="search_btn">Find Healthy Food</button>
+    </div>
+
+    <div id="output"></div>
+
+<script>
+    function getLocation() {
+        if (!navigator.geolocation) {
+            document.getElementById("output").textContent = "Geolocation is not supported by your browser.";
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+
+    function success(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        document.getElementById("output").textContent = `Your location: ${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+    }
+
+    function error() {
+        document.getElementById("output").textContent = "Unable to retrieve your location.";
+    }
+</script>
+
+    <script src="app.js"></script>
+</body>
+</html>
