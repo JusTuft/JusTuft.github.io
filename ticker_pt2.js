@@ -9,7 +9,7 @@ let coll;
 MongoClient.connect(MongoURL)
     .then(client => {
         var dbo = client.db("Stock");
-        var coll = dbo.collection('PublicCompanies');
+        coll = dbo.collection('PublicCompanies');
     })
     .catch(err => {
         console.log("Database error: " + err);
