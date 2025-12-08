@@ -10,10 +10,16 @@
   "type": "git",
   "url": ""
 },
+  "dependencies": {
+    "mongodb": "^6.5.0"
+},
   "author": "",
   "license": "ISC",
   "bugs": {
   "url": ""
+},
+  "engines": {
+    "node": "18.x"
 },
   "homepage": ""
 }
