@@ -4,7 +4,8 @@ const MongoClient = require('mongodb').MongoClient;
 const MongoURL = "mongodb+srv://dbUser:dbUser@ticking.swchu4g.mongodb.net/?appName=Ticking";
 const PORT = process.env.PORT || 3000;
 
-client = new MongoClient(MongoURL);
+let coll;
+
 MongoClient.connect(MongoURL)
     .then(client => {
         var dbo = client.db("Stock");
@@ -12,7 +13,6 @@ MongoClient.connect(MongoURL)
     })
     .catch(err => {
         console.log("Database error: " + err);
-        process.exit(1);
     });
 
 http.createServer(async function (req, res) {
@@ -67,10 +67,6 @@ http.createServer(async function (req, res) {
         // Display results of info from Mongo
         coll.find(MongoQuery).toArray()
             .then(results => {
-                if (err) {
-                    res.end("Database error: " + err);
-                    return;
-                }
                 res.write(`
                     <!doctype html>
                     <html lang="en">
@@ -102,7 +98,6 @@ http.createServer(async function (req, res) {
             })
             .catch(err => {
                 console.log("Database error: " + err);
-                process.exit(1);
             });
     } else {
         res.write("<p>I don't know how you got here. Go back!</p>");
